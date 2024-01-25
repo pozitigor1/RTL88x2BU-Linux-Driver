@@ -1,3 +1,5 @@
+# Original driver was created by RinCat
+there not much changes except of the instruction for Linux distros that using clang as the default compiler instead of gcc. The original github rtl88x2bu page is [here](https://github.com/RinCat/RTL88x2BU-Linux-Driver)
 # REALTEK RTL88x2B USB Linux Driver
 **Current Driver Version**: 5.13.1
 **Support Kernel**: 2.6.24 ~ 6.7 (with unofficial patches)
@@ -98,7 +100,7 @@ And reboot your system.
 And more.
 
 # How to use this kernel module
-* Ensure you have C compiler & toolchains, e.g. `build-essential` for Debian/Ubuntu, `base-devel` for Arch, etc.
+* Ensure you have C compiler & toolchains, e.g. kernel-desktop-devel and clang-tools for openmamdriva
 * Make sure you have installed the corresponding kernel headers
 * All commands need to be run in the driver directory
 * You need rebuild the kernel module everytime you update/change the kernel if you are not using DKMS
@@ -113,7 +115,7 @@ make clean
 
 ### Building module for current running kernel
 ```
-make
+make CC=clang
 ```
 
 ### Building module for other kernels
@@ -150,6 +152,3 @@ If you want to force a given mode permanently (even when switching the adapter a
 
 # Debug
 Set debug log use `echo 5 > /proc/net/rtl88x2bu/log_level` or `modprobe 88x2bu rtw_drv_log_level=5`
-
-# Distribution
-* Archlinux AUR https://aur.archlinux.org/packages/rtl88x2bu-dkms-git/
